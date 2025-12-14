@@ -23,8 +23,11 @@ dependencies:
   connectivity_plus: ^6.1.3
   crypto: ^3.0.3
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   flutter_gen: ^5.10.0
   flutter_localizations:
     sdk: flutter
@@ -33,6 +36,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   font_awesome_flutter: ^10.5.0
   geolocator: ^13.0.2
+  get_it: ^9.2.0
   google_fonts: ^6.3.2
   google_maps_flutter: ^2.4.1
   http: ^1.2.2

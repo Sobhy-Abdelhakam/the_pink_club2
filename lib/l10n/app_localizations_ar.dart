@@ -591,7 +591,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get home => 'الرئيسية';
 
   @override
-  String get roadsideAssistance => 'مساعدة الطريق';
+  String get roadsideAssistance => 'الإنقاذ على الطريق';
 
   @override
   String get homecareServices => 'خدمات الرعاية المنزلية';
@@ -607,4 +607,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get restaurants => 'المطاعم';
+
+  @override
+  String get categories => 'التصنيفات';
+
+  @override
+  String get searchServices => 'البحث عن الخدمات...';
 }

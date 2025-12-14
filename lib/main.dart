@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_pink_club2/screen/Medical/medical_network.dart';
-import 'package:the_pink_club2/screen/pages/about_us/about_screen.dart';
-import 'package:the_pink_club2/screen/servicePages/advisory_services.dart';
-import 'package:the_pink_club2/screen/servicePages/car_service.dart';
-import 'package:the_pink_club2/screen/servicePages/concierge.dart';
-import 'package:the_pink_club2/screen/pages/contact/contact_us_page.dart';
-import 'package:the_pink_club2/screen/servicePages/license_services.dart';
-import 'package:the_pink_club2/screen/servicePages/medical_advisory.dart';
-import 'package:the_pink_club2/screen/servicePages/medical_service_data.dart';
-import 'package:the_pink_club2/screen/servicePages/medical_services.dart';
-import 'package:the_pink_club2/screen/servicePages/more_services.dart';
-import 'package:the_pink_club2/screen/pages/subscription/subscriptions_page.dart';
-import 'package:the_pink_club2/screen/servicePages/automotive_supplies.dart';
-import 'package:the_pink_club2/screen/servicePages/second_medical_opinion.dart';
-import 'package:the_pink_club2/screen/splash.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:the_pink_club2/widget/color.dart';
+
+import 'core/di/injection_container.dart' as di;
+import 'core/utils/color.dart';
 import '/l10n/app_localizations.dart';
 
-void main() {
+import 'features/splash/presentation/pages/splash_page.dart';
+
+import 'features/services/presentation/pages/car_service_page.dart';
+import 'features/services/presentation/pages/medical_services_page.dart';
+import 'features/about/presentation/pages/about_screen.dart';
+import 'features/subscription/presentation/pages/subscriptions_page.dart';
+import 'features/contact/presentation/pages/contact_us_page.dart';
+import 'features/services/presentation/pages/concierge_page.dart';
+import 'features/services/presentation/pages/advisory_services_page.dart';
+import 'features/services/presentation/pages/license_services_page.dart';
+import 'features/services/presentation/pages/medical_advisory_page.dart';
+import 'features/services/presentation/pages/medical_service_data_page.dart';
+import 'features/medical_network/presentation/pages/medical_network_page.dart'; 
+import 'features/services/presentation/pages/more_services_page.dart';
+import 'features/services/presentation/pages/automotive_supplies_page.dart';
+import 'features/services/presentation/pages/second_medical_opinion_page.dart';
+
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -133,23 +139,6 @@ class _MyAppState extends State<MyApp> {
               ),
               minThumbLength: 50,
             ),
-            // elevatedButtonTheme: ElevatedButtonThemeData(
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: AppColors.primary,
-            //     foregroundColor: Colors.white,
-            //     padding: const EdgeInsets.symmetric(
-            //       horizontal: 24,
-            //       vertical: 14,
-            //     ),
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(24),
-            //     ),
-            //   ),
-            // ),
-            // iconTheme: const IconThemeData(color: AppColors.primary),
-            // progressIndicatorTheme: const ProgressIndicatorThemeData(
-            //   color: AppColors.primary,
-            // ),
           ),
           debugShowCheckedModeBanner: false,
           routes: {
@@ -178,7 +167,7 @@ class _MyAppState extends State<MyApp> {
               }
             }
             // إذا لم تكن لغة الجهاز مدعومة، نعود للغة الافتراضية (العربية)
-            return const Locale('ar');
+            return const Locale('en');
           },
         );
       },

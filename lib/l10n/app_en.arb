@@ -218,5 +218,7 @@
   "conciergeServices": "Concierge Services",
   "entertainmentLeisure": "Entertainment & Leisure",
   "fashion": "Fashion",
-  "restaurants": "Restaurants"
+  "restaurants": "Restaurants",
+  "categories": "Categories",
+  "searchServices": "Search services..."
 }

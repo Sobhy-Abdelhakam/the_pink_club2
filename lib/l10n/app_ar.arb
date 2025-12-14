@@ -210,7 +210,7 @@
   "retry": "إعادة المحاولة",
   "egb": "جنيه",
   "home": "الرئيسية",
-  "roadsideAssistance": "مساعدة الطريق",
+  "roadsideAssistance": "الإنقاذ على الطريق",
   "medicalDiscounts": "خصومات طبية",
   "automotiveSupplies": "مستلزمات السيارات",
   "homecareServices": "خدمات الرعاية المنزلية",
@@ -218,5 +218,7 @@
   "conciergeServices": "خدمات الكونسيرج",
   "entertainmentLeisure": "الترفيه والاستجمام",
   "fashion": "الموضة",
-  "restaurants": "المطاعم"
+  "restaurants": "المطاعم",
+  "categories": "التصنيفات",
+  "searchServices": "البحث عن الخدمات..."
 }

@@ -607,4 +607,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restaurants => 'Restaurants';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get searchServices => 'Search services...';
 }
