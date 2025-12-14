@@ -220,5 +220,15 @@
   "fashion": "الموضة",
   "restaurants": "المطاعم",
   "categories": "التصنيفات",
-  "searchServices": "البحث عن الخدمات..."
+  "searchServices": "البحث عن الخدمات...",
+  "carTowing": "نقل السيارة في حالة العطل",
+  "carReturning": "إعادة السيارة الي الطريق",
+  "batteryRecharge": "إعادة شحن البطارية",
+  "tireChange": "تبديل الإطار",
+  "urgentMessages": "إبلاغ الرسائل العاجلة",
+  "providingInfo": "توفير المعلومات",
+  "carMaintenance": "ترتيب صيانة السيارة تحت المنزل",
+  "replacementCar": "المساعدة في توفير سيارة بديلة",
+  "ambulanceArrangements": "ترتيبات الإسعاف",
+  "fuelDelivery": "توصيل الوقود"
 }

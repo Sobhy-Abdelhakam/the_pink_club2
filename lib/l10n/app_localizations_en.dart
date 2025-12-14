@@ -613,4 +613,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchServices => 'Search services...';
+
+  @override
+  String get carTowing => 'Car Towing';
+
+  @override
+  String get carReturning => 'Returning Car to Road';
+
+  @override
+  String get batteryRecharge => 'Battery Recharge';
+
+  @override
+  String get tireChange => 'Tire Replacement';
+
+  @override
+  String get urgentMessages => 'Urgent Messages';
+
+  @override
+  String get providingInfo => 'Providing Information';
+
+  @override
+  String get carMaintenance => 'Home Car Maintenance';
+
+  @override
+  String get replacementCar => 'Replacement Car Assistance';
+
+  @override
+  String get ambulanceArrangements => 'Ambulance Arrangements';
+
+  @override
+  String get fuelDelivery => 'Fuel Delivery';
 }

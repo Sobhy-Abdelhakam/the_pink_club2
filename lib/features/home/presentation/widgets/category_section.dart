@@ -4,7 +4,6 @@ import '../../../../core/utils/color.dart';
 
 import '../../../services/presentation/widgets/service_card.dart'; // Keep for IconHelper if static
 
-
 class CategorySection extends StatelessWidget {
   final String title;
   final List<Map<String, dynamic>> services;
@@ -61,18 +60,22 @@ class _ServicesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140, // Reduced height for compact look
+      height: 165, // Increased height for larger cards
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: services.length,
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4), // Aligned padding
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 8,
+        ), // More vertical padding for shadows
         itemBuilder: (context, index) {
           final serviceData = services[index];
-          
-          return _CompactServiceCard(
+
+          return _ServiceItemCard(
             title: serviceData['title'] as String,
             iconKey: serviceData['icon'] as String,
+            imagePath: serviceData['image'] as String?,
             onTap: () {
               final route = serviceData['route'] as String?;
               if (route != null && route.isNotEmpty) {
@@ -81,21 +84,23 @@ class _ServicesGrid extends StatelessWidget {
             },
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(width: 12),
+        separatorBuilder: (context, index) => const SizedBox(width: 14),
       ),
     );
   }
 }
 
-class _CompactServiceCard extends StatelessWidget {
+class _ServiceItemCard extends StatelessWidget {
   final String title;
   final String iconKey;
+  final String? imagePath;
   final VoidCallback onTap;
 
-  const _CompactServiceCard({
+  const _ServiceItemCard({
     Key? key,
     required this.title,
     required this.iconKey,
+    this.imagePath,
     required this.onTap,
   }) : super(key: key);
 
@@ -104,36 +109,62 @@ class _CompactServiceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 110, // Compact width
+        width: 115, // Slightly wider
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20), // Softer corners
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.04),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
           ],
-          border: Border.all(color: Colors.grey.shade100),
+          // Removed border for cleaner "professional" look, reliant on shadow elevation
         ),
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: AppColors.primary.withValues(alpha: 0.08),
-                shape: BoxShape.circle,
+            if (imagePath != null)
+              Container(
+                height: 60, // Larger image
+                width: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  // Optional: nice subtle background for Transparent PNGs
+                  color: AppColors.primary.withValues(alpha: 0.03),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    imagePath!,
+                    fit: BoxFit.cover,
+                    width: 60,
+                    height: 60,
+                    errorBuilder:
+                        (context, error, stackTrace) => Icon(
+                          Icons.broken_image,
+                          color: Colors.grey.shade300,
+                        ),
+                  ),
+                ),
+              )
+            else
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.08),
+                  shape: BoxShape.circle,
+                ),
+                child: IconHelper.getIcon(
+                  iconKey,
+                  size: 26,
+                  color: AppColors.primary,
+                ),
               ),
-              child: IconHelper.getIcon(
-                iconKey,
-                size: 24, // Smaller icon
-                color: AppColors.primary,
-              ),
-            ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             Text(
               title,
               textAlign: TextAlign.center,
@@ -143,7 +174,8 @@ class _CompactServiceCard extends StatelessWidget {
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
-                height: 1.2,
+                height: 1.3,
+                letterSpacing: -0.2,
               ),
             ),
           ],

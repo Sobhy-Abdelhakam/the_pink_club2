@@ -613,4 +613,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get searchServices => 'البحث عن الخدمات...';
+
+  @override
+  String get carTowing => 'نقل السيارة في حالة العطل';
+
+  @override
+  String get carReturning => 'إعادة السيارة الي الطريق';
+
+  @override
+  String get batteryRecharge => 'إعادة شحن البطارية';
+
+  @override
+  String get tireChange => 'تبديل الإطار';
+
+  @override
+  String get urgentMessages => 'إبلاغ الرسائل العاجلة';
+
+  @override
+  String get providingInfo => 'توفير المعلومات';
+
+  @override
+  String get carMaintenance => 'ترتيب صيانة السيارة تحت المنزل';
+
+  @override
+  String get replacementCar => 'المساعدة في توفير سيارة بديلة';
+
+  @override
+  String get ambulanceArrangements => 'ترتيبات الإسعاف';
+
+  @override
+  String get fuelDelivery => 'توصيل الوقود';
 }

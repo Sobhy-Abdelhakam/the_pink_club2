@@ -220,5 +220,15 @@
   "fashion": "Fashion",
   "restaurants": "Restaurants",
   "categories": "Categories",
-  "searchServices": "Search services..."
+  "searchServices": "Search services...",
+  "carTowing": "Car Towing",
+  "carReturning": "Returning Car to Road",
+  "batteryRecharge": "Battery Recharge",
+  "tireChange": "Tire Replacement",
+  "urgentMessages": "Urgent Messages",
+  "providingInfo": "Providing Information",
+  "carMaintenance": "Home Car Maintenance",
+  "replacementCar": "Replacement Car Assistance",
+  "ambulanceArrangements": "Ambulance Arrangements",
+  "fuelDelivery": "Fuel Delivery"
 }

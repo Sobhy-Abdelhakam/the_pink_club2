@@ -1306,6 +1306,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search services...'**
   String get searchServices;
+
+  /// No description provided for @carTowing.
+  ///
+  /// In en, this message translates to:
+  /// **'Car Towing'**
+  String get carTowing;
+
+  /// No description provided for @carReturning.
+  ///
+  /// In en, this message translates to:
+  /// **'Returning Car to Road'**
+  String get carReturning;
+
+  /// No description provided for @batteryRecharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Recharge'**
+  String get batteryRecharge;
+
+  /// No description provided for @tireChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Tire Replacement'**
+  String get tireChange;
+
+  /// No description provided for @urgentMessages.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Messages'**
+  String get urgentMessages;
+
+  /// No description provided for @providingInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Providing Information'**
+  String get providingInfo;
+
+  /// No description provided for @carMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Car Maintenance'**
+  String get carMaintenance;
+
+  /// No description provided for @replacementCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Replacement Car Assistance'**
+  String get replacementCar;
+
+  /// No description provided for @ambulanceArrangements.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambulance Arrangements'**
+  String get ambulanceArrangements;
+
+  /// No description provided for @fuelDelivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel Delivery'**
+  String get fuelDelivery;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
