@@ -1,0 +1,122 @@
+name: the_pink_club2
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 2.0.1+9
+
+environment:
+  sdk: ^3.7.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  animated_background: ^2.0.0
+  animated_text_kit: ^4.2.0
+  animations: ^2.0.7
+  cached_network_image: ^3.4.1
+  connectivity_plus: ^6.1.3
+  crypto: ^3.0.3
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_gen: ^5.10.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_map: ^5.0.0
+  flutter_screenutil: ^5.5.4
+  flutter_secure_storage: ^9.2.4
+  font_awesome_flutter: ^10.5.0
+  geolocator: ^13.0.2
+  google_fonts: ^6.3.2
+  google_maps_flutter: ^2.4.1
+  http: ^1.2.2
+  intl: ^0.20.2
+  latlong2: ^0.9.0
+  lottie: ^2.4.1
+  permission_handler: ^11.0.0
+  shared_preferences: ^2.2.0
+  shimmer: ^3.0.0
+  smooth_page_indicator: ^1.2.0+3
+  url_launcher: ^6.2.5
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.jpg"
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  generate: true
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/clinic.jpg
+    - assets/images/hospital.jpg
+    - assets/images/logo.jpg
+    - assets/images/medicaltests.jpg
+    - assets/images/optometry.jpg
+    - assets/images/pharmacy.jpg
+    - assets/images/physical.jpg
+    - assets/images/scan.jpg
+    - assets/images/splash1.jpg
+    - assets/images/splash2.jpg
+    - assets/images/splash3.jpg
+    - assets/images/splash22.jpg
+    - assets/images/splash23.jpg
+    - assets/icons/clinics.png
+    - assets/icons/hospital.png
+    - assets/icons/laboratory.png
+    - assets/icons/optics.png
+    - assets/icons/pharmacy.png
+    - assets/icons/physiotherapy.png
+    - assets/icons/scan.png
+    - assets/icons/SpecializedCenters.png
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
