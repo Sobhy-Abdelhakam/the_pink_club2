@@ -50,13 +50,13 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
     final lang = Localizations.localeOf(context).languageCode;
 
     return BlocProvider(
-      create: (_) => sl<ConciergeBloc>()..add(GetConciergeServicesEvent(lang: lang)),
+      create:
+          (_) =>
+              sl<ConciergeBloc>()..add(GetConciergeServicesEvent(lang: lang)),
       child: Scaffold(
         backgroundColor: AppColors.background,
         appBar: CleanServiceAppBar(title: loc.conciergeServices),
-        body: SafeArea(
-          child: _buildBody(loc),
-        ),
+        body: SafeArea(child: _buildBody(loc)),
       ),
     );
   }
@@ -82,12 +82,14 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
                 ),
                 TextButton.icon(
                   onPressed: () {
-                     final lang = Localizations.localeOf(context).languageCode;
-                     context.read<ConciergeBloc>().add(GetConciergeServicesEvent(lang: lang));
+                    final lang = Localizations.localeOf(context).languageCode;
+                    context.read<ConciergeBloc>().add(
+                      GetConciergeServicesEvent(lang: lang),
+                    );
                   },
                   icon: const Icon(Icons.refresh, color: Colors.red),
                   label: Text(loc.retry),
-                )
+                ),
               ],
             ),
           );
@@ -111,9 +113,9 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
               itemCount: services.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 14,
-                mainAxisSpacing: 20,
-                childAspectRatio: .88,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 14,
+                childAspectRatio: .75,
               ),
               itemBuilder: (_, i) => _buildGirlishServiceCard(i, services),
             ),
@@ -145,7 +147,7 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(18),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -153,8 +155,8 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 56,
-                    height: 56,
+                    width: 48,
+                    height: 48,
                     decoration: BoxDecoration(
                       color: color.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(14),
@@ -168,10 +170,10 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
               Text(
                 service.title,
-                maxLines: 2,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontSize: 16,
@@ -180,7 +182,7 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
                   height: 1.3,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Expanded(
                 child: Text(
                   service.description,
@@ -195,7 +197,10 @@ class _ConciergeServicesPageState extends State<ConciergeServicesPage>
               ),
               const SizedBox(height: 12),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: color.withOpacity(0.08),
                   borderRadius: BorderRadius.circular(12),

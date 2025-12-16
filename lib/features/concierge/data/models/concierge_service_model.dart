@@ -22,12 +22,12 @@ class ConciergeServiceModel extends ConciergeService {
   factory ConciergeServiceModel.fromJson(Map<String, dynamic> json) {
     return ConciergeServiceModel(
       id: json['id'] is int ? json['id'] : int.tryParse(json['id'].toString()) ?? 0,
-      title: json['title'] ?? '',
-      icon: json['icon'] ?? 'question-circle',
-      color: json['color'] ?? '#E91E63',
-      description: json['description'] ?? '',
+      title: json['title']?.toString() ?? '',
+      icon: json['icon']?.toString() ?? 'question-circle',
+      color: json['color']?.toString() ?? '#E91E63',
+      description: json['description']?.toString() ?? '',
       price: json['price'] is num ? (json['price'] as num).toDouble() : double.tryParse(json['price'].toString()) ?? 0.0,
-      duration: json['duration'] ?? '',
+      duration: json['duration']?.toString() ?? '',
     );
   }
 

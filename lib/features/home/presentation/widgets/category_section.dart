@@ -8,12 +8,14 @@ class CategorySection extends StatelessWidget {
   final String title;
   final List<Map<String, dynamic>> services;
   final int startIndex;
+  final bool itemsClickable;
 
   const CategorySection({
     Key? key,
     required this.title,
     required this.services,
     required this.startIndex,
+    this.itemsClickable = true,
   }) : super(key: key);
 
   @override
@@ -40,7 +42,11 @@ class CategorySection extends StatelessWidget {
             ),
           ),
         ),
-        _ServicesGrid(services: services, startIndex: startIndex),
+        _ServicesGrid(
+          services: services,
+          startIndex: startIndex,
+          itemsClickable: itemsClickable,
+        ),
         const SizedBox(height: 20),
       ],
     );
@@ -50,11 +56,13 @@ class CategorySection extends StatelessWidget {
 class _ServicesGrid extends StatelessWidget {
   final List<Map<String, dynamic>> services;
   final int startIndex;
+  final bool itemsClickable;
 
   const _ServicesGrid({
     Key? key,
     required this.services,
     required this.startIndex,
+    required this.itemsClickable,
   }) : super(key: key);
 
   @override
@@ -76,12 +84,14 @@ class _ServicesGrid extends StatelessWidget {
             title: serviceData['title'] as String,
             iconKey: serviceData['icon'] as String,
             imagePath: serviceData['image'] as String?,
-            onTap: () {
-              final route = serviceData['route'] as String?;
-              if (route != null && route.isNotEmpty) {
-                Navigator.of(context).pushNamed(route);
-              }
-            },
+            onTap: itemsClickable
+                ? () {
+                    final route = serviceData['route'] as String?;
+                    if (route != null && route.isNotEmpty) {
+                      Navigator.of(context).pushNamed(route);
+                    }
+                  }
+                : null,
           );
         },
         separatorBuilder: (context, index) => const SizedBox(width: 14),
@@ -94,14 +104,14 @@ class _ServiceItemCard extends StatelessWidget {
   final String title;
   final String iconKey;
   final String? imagePath;
-  final VoidCallback onTap;
+  final VoidCallback? onTap; // Made nullable
 
   const _ServiceItemCard({
     Key? key,
     required this.title,
     required this.iconKey,
     this.imagePath,
-    required this.onTap,
+    this.onTap, // Made optional
   }) : super(key: key);
 
   @override
@@ -127,29 +137,26 @@ class _ServiceItemCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (imagePath != null)
-              Container(
-                height: 60, // Larger image
-                width: 60,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  // Optional: nice subtle background for Transparent PNGs
-                  color: AppColors.primary.withValues(alpha: 0.03),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    imagePath!,
-                    fit: BoxFit.cover,
-                    width: 60,
-                    height: 60,
-                    errorBuilder:
-                        (context, error, stackTrace) => Icon(
-                          Icons.broken_image,
-                          color: Colors.grey.shade300,
-                        ),
-                  ),
-                ),
+              Expanded(
+                flex: 3,
+                 child: Container(
+                   width: double.infinity,
+                   decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(15),
+                     // No background for cleaner look if image fills
+                   ),
+                   child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                     child: Image.asset(
+                       imagePath!,
+                       fit: BoxFit.contain, // Contain to show full image without cropping
+                       errorBuilder: (context, error, stackTrace) => Icon(
+                         Icons.broken_image,
+                         color: Colors.grey.shade300,
+                       ),
+                     ),
+                   ),
+                 ),
               )
             else
               Container(
@@ -160,22 +167,27 @@ class _ServiceItemCard extends StatelessWidget {
                 ),
                 child: IconHelper.getIcon(
                   iconKey,
-                  size: 26,
+                  size: 28, // Increased size
                   color: AppColors.primary,
                 ),
               ),
-            const SizedBox(height: 14),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: AppColors.textPrimary,
-                height: 1.3,
-                letterSpacing: -0.2,
+            const SizedBox(height: 10),
+            Flexible(
+              flex: 2,
+              child: Center(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textPrimary,
+                    height: 1.2,
+                    letterSpacing: -0.2,
+                  ),
+                ),
               ),
             ),
           ],
